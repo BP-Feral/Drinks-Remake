@@ -1,15 +1,15 @@
 {
     "slots": [
-        { "id": 1, "drink": "", "position": {"x": -98, "y": 0} },
+        { "id": 1, "drink": "", "position": {"x": -96, "y": 0} },
         { "id": 2, "drink": "D00", "position": {"x": 0, "y": 0} },
-        { "id": 3, "drink": "D01", "position": {"x": 98, "y": 0} },
-        { "id": 4, "drink": "D01", "position": {"x": -244, "y": 100} },
-        { "id": 5, "drink": "D01", "position": {"x": -146, "y": 100} },
-        { "id": 6, "drink": "", "position": {"x": -48, "y": 100} },
-        { "id": 7, "drink": "", "position": {"x": 48, "y": 100} },
-        { "id": 8, "drink": "D00", "position": {"x": 146, "y": 100} },
-        { "id": 9, "drink": "D00", "position": {"x": 244, "y": 100} }
+        { "id": 3, "drink": "D01", "position": {"x": 96, "y": 0} },
+        { "id": 4, "drink": "D01", "position": {"x": -288, "y": -150} },
+        { "id": 5, "drink": "D01", "position": {"x": -192, "y": -150} },
+        { "id": 6, "drink": "", "position": {"x": -96, "y": -150} },
+        { "id": 7, "drink": "", "position": {"x": 96, "y": -150} },
+        { "id": 8, "drink": "D00", "position": {"x": 192, "y": -150} },
+        { "id": 9, "drink": "D00", "position": {"x": 288, "y": -150} }
     ],
-    "timer": 50,
+    "timer": 30,
     "difficulty": "normal"
 }
