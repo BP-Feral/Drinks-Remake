@@ -10,6 +10,6 @@
         { "id": 8, "drink": "D00", "position": {"x": 146, "y": 100} },
         { "id": 9, "drink": "D00", "position": {"x": 244, "y": 100} }
     ],
-    "timer": 5,
+    "timer": 50,
     "difficulty": "normal"
 }

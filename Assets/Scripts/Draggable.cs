@@ -11,6 +11,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public Transform parentAfterDrag;
     private Vector3 dragOffset;
 
+    private LevelManager levelManager;
+
+    private void Start()
+    {
+        levelManager = FindObjectOfType<LevelManager>();
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("Begin drag");
@@ -34,5 +40,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         Debug.Log("End drag");
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+        if (levelManager != null)
+        {
+            levelManager.CheckForMatches();
+        }
+        else
+        {
+            Debug.LogWarning("LevelManager not found!");
+        }
     }
 }
