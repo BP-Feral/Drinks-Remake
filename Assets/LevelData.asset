@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelJsonPaths:
   - Levels/level_1
-  - StreamingAssets/level_2.json
-  - StreamingAssets/level_3.json
-  - StreamingAssets/level_4.json
-  - StreamingAssets/level_5.json
+  - Levels/level_2
+  - Levels/level_3
+  - Levels/level_4
+  - Levels/level_5

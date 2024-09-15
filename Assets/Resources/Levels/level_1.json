@@ -11,5 +11,5 @@
         { "id": 9, "drink": "D00", "position": {"x": 288, "y": -150} }
     ],
     "timer": 30,
-    "difficulty": "normal"
+    "difficulty": "Easy"
 }

@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     public GameObject[] drinkPrefabs;
     public Text timerText;
     public Text difficultyText;
+    public Text Txtlevel;
+    public Text Txtscore;
     public GameObject gameOverPanelPrefab;
 
 
@@ -21,8 +23,10 @@ public class LevelManager : MonoBehaviour
     private float levelTimer;
     private GameObject gameOverPanelInstance;
 
+    private AudioManager audioManager;
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         LoadLevel(currentLevelIndex);
     }
 
@@ -92,7 +96,12 @@ public class LevelManager : MonoBehaviour
         Debug.Log($"Loaded level with difficulty: {levelData.difficulty}");
         levelTimer = levelData.timer;
         isLevelActive = true;
-
+        
+        if (Txtlevel != null)
+        {
+            Txtlevel.text = $"Level: {levelIndex + 1}";
+        }
+        
         if (difficultyText != null)
         {
             difficultyText.text = $"Difficulty: {levelData.difficulty}";
@@ -165,8 +174,16 @@ public class LevelManager : MonoBehaviour
                     Destroy(drink2.gameObject);
                     Destroy(drink3.gameObject);
 
+                    if (audioManager != null)
+                    {
+                        audioManager.PlayMatchSound();
+                    }
                     // Award points
                     score += 10; // TODO display score and level
+                    if (Txtscore != null)
+                    {
+                        Txtscore.text = $"Score: {score}";
+                    }
                     Debug.Log("Score: " + score);
                 }
             }

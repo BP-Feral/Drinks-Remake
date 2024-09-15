@@ -12,10 +12,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private Vector3 dragOffset;
 
     private LevelManager levelManager;
+    private AudioManager audioManager;
 
     private void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -27,6 +29,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
+
+        if (audioManager != null)
+        {
+            audioManager.PlaySelectSound();
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -40,6 +47,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         Debug.Log("End drag");
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+        
+        if (audioManager != null)
+        {
+            audioManager.PlayDropSound();
+        }
+
         if (levelManager != null)
         {
             levelManager.CheckForMatches();

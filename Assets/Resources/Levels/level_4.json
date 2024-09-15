@@ -1,0 +1,53 @@
+{
+    "slots": [
+        { "id": 1, "drink": "", "position": {"x": -672, "y": 150} },
+        { "id": 2, "drink": "D06", "position": {"x": -576, "y": 150} },
+        { "id": 3, "drink": "D05", "position": {"x": -480, "y": 150} },
+
+        { "id": 4, "drink": "D05", "position": {"x": -288, "y": 150} },
+        { "id": 5, "drink": "D03", "position": {"x": -192, "y": 150} },
+        { "id": 6, "drink": "D03", "position": {"x": -96, "y": 150} },
+
+        { "id": 7, "drink": "D08", "position": {"x": 96, "y": 150} },
+        { "id": 8, "drink": "D07", "position": {"x": 192, "y": 150} },
+        { "id": 9, "drink": "D02", "position": {"x": 288, "y": 150} },
+
+        { "id": 10, "drink": "", "position": {"x": 480, "y": 150} },
+        { "id": 11, "drink": "D07", "position": {"x": 576, "y": 150} },
+        { "id": 12, "drink": "", "position": {"x": 672, "y": 150} },
+
+        { "id": 13, "drink": "D00", "position": {"x": -672, "y": 0} },
+        { "id": 14, "drink": "D04", "position": {"x": -576, "y": 0} },
+        { "id": 15, "drink": "D02", "position": {"x": -480, "y": 0} },
+
+        { "id": 16, "drink": "D01", "position": {"x": -288, "y": 0} },
+        { "id": 17, "drink": "D05", "position": {"x": -192, "y": 0} },
+        { "id": 18, "drink": "D03", "position": {"x": -96, "y": 0} },
+
+        { "id": 19, "drink": "D01", "position": {"x": 96, "y": 0} },
+        { "id": 20, "drink": "D07", "position": {"x": 192, "y": 0} },
+        { "id": 21, "drink": "D08", "position": {"x": 288, "y": 0} },
+
+        { "id": 22, "drink": "D08", "position": {"x": 480, "y": 0} },
+        { "id": 23, "drink": "D01", "position": {"x": 576, "y": 0} },
+        { "id": 24, "drink": "D09", "position": {"x": 672, "y": 0} },
+
+        { "id": 25, "drink": "D04", "position": {"x": -672, "y": -150} },
+        { "id": 26, "drink": "D02", "position": {"x": -576, "y": -150} },
+        { "id": 27, "drink": "D06", "position": {"x": -480, "y": -150} },
+
+        { "id": 28, "drink": "D00", "position": {"x": -288, "y": -150} },
+        { "id": 29, "drink": "D04", "position": {"x": -192, "y": -150} },
+        { "id": 30, "drink": "D06", "position": {"x": -96, "y": -150} },
+
+        { "id": 31, "drink": "D00", "position": {"x": 96, "y": -150} },
+        { "id": 32, "drink": "D05", "position": {"x": 192, "y": -150} },
+        { "id": 33, "drink": "D09", "position": {"x": 288, "y": -150} },
+
+        { "id": 34, "drink": "D05", "position": {"x": 480, "y": -150} },
+        { "id": 35, "drink": "D05", "position": {"x": 576, "y": -150} },
+        { "id": 36, "drink": "D09", "position": {"x": 672, "y": -150} }
+    ],
+    "timer": 120,
+    "difficulty": "SuperHard"
+}
