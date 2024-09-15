@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    Transform parentAfterDrag;
+    
+    [HideInInspector]
+    public Transform parentAfterDrag;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
