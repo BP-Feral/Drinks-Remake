@@ -14,4 +14,6 @@ public class SlotData
 public class LevelData
 {
     public List<SlotData> slots;
+    public string difficulty;
+    public float timer;
 }

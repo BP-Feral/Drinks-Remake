@@ -1,40 +1,64 @@
-using System.IO;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public string[] levelFileNames;
+    public LevelDataSO levelDataSO;
     public GameObject slotPrefab;
     public GameObject[] drinkPrefabs;
 
+    public Text timerText;
+    public Text difficultyText;
+
     private int currentLevelIndex = 0;
+    private float levelTimer;
+    private bool isLevelActive = false;
 
     private void Start()
     {
         LoadLevel(currentLevelIndex);
     }
 
-    private void LoadLevel(int levelIndex)
+    private void Update()
     {
-        if (levelIndex < 0 || levelIndex >= levelFileNames.Length)
+        if (isLevelActive)
+        {
+            levelTimer -= Time.deltaTime;
+            if (levelTimer <= 0)
+            {
+                levelTimer = 0;
+                EndLevel();
+            }
+
+            // Update timer UI
+            if (timerText != null)
+            {
+                timerText.text = $"Time: {Mathf.Round(levelTimer)}";
+            }
+        }
+    }
+
+    public void LoadLevel(int levelIndex)
+    {
+        if (levelIndex < 0 || levelIndex >= levelDataSO.levelJsonPaths.Length)
         {
             Debug.LogError("Invalid level index.");
             return;
         }
 
-        string jsonFileName = levelFileNames[levelIndex];
-        string path = Path.Combine(Application.streamingAssetsPath, jsonFileName);
+        string resourcePath = levelDataSO.levelJsonPaths[levelIndex];
+        TextAsset levelJson = Resources.Load<TextAsset>(resourcePath);
 
-        if (!File.Exists(path))
+        if (levelJson == null)
         {
-            Debug.LogError($"File not found: {path}");
+            Debug.LogError($"Failed to load JSON file from path: {resourcePath}");
             return;
         }
 
-        string json = File.ReadAllText(path);
-        LevelData levelData = JsonUtility.FromJson<LevelData>(json);
+        LevelData levelData = JsonUtility.FromJson<LevelData>(levelJson.text);
 
-        // Clear existing slots (if needed)
+        // Clear existing slots
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
@@ -60,10 +84,28 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+
+        Debug.Log($"Loaded level with difficulty: {levelData.difficulty}");
+        levelTimer = levelData.timer;
+        isLevelActive = true;
+
+        if (difficultyText != null)
+        {
+            difficultyText.text = $"Difficulty: {levelData.difficulty}";
+        }
     }
+
+    private void EndLevel()
+    {
+        isLevelActive = false;
+        Debug.Log("Level ended.");
+
+        // TODO LOST GAME
+    }
+
     public void NextLevel()
     {
-        currentLevelIndex = (currentLevelIndex + 1) % levelFileNames.Length;
+        currentLevelIndex = (currentLevelIndex + 1) % levelDataSO.levelJsonPaths.Length;
         LoadLevel(currentLevelIndex);
     }
 
