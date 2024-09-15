@@ -3,6 +3,6 @@
         { "id": 1, "drink": "D00", "position": {"x": 0, "y": 0} },
         { "id": 1, "drink": "", "position": {"x": 98, "y": 0} }        
     ],
-    "timer": 60,
+    "timer": 5,
     "difficulty": "normal"
 }

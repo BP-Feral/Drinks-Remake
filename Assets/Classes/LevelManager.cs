@@ -7,13 +7,15 @@ public class LevelManager : MonoBehaviour
     public LevelDataSO levelDataSO;
     public GameObject slotPrefab;
     public GameObject[] drinkPrefabs;
-
     public Text timerText;
     public Text difficultyText;
+    public GameObject gameOverPanelPrefab;
+
 
     private int currentLevelIndex = 0;
+    private bool isLevelActive = true;
     private float levelTimer;
-    private bool isLevelActive = false;
+    private GameObject gameOverPanelInstance;
 
     private void Start()
     {
@@ -97,10 +99,24 @@ public class LevelManager : MonoBehaviour
 
     private void EndLevel()
     {
-        isLevelActive = false;
-        Debug.Log("Level ended.");
+        if (isLevelActive)
+        {
+            isLevelActive = false;
 
-        // TODO LOST GAME
+            if (gameOverPanelPrefab != null)
+            {
+                if (gameOverPanelInstance != null)
+                {
+                    Destroy(gameOverPanelInstance);
+                }
+
+                gameOverPanelInstance = Instantiate(gameOverPanelPrefab, Vector3.zero, Quaternion.identity);
+                RectTransform rt = gameOverPanelInstance.GetComponent<RectTransform>();
+                rt.SetParent(FindObjectOfType<Canvas>().transform, false);
+            }
+
+            Debug.Log("Level ended.");
+        }
     }
 
     public void NextLevel()
